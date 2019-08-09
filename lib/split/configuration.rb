@@ -12,6 +12,7 @@ module Split
     attr_accessor :enabled
     attr_accessor :persistence
     attr_accessor :persistence_cookie_length
+    attr_accessor :cookie_domain
     attr_accessor :algorithm
     attr_accessor :store_override
     attr_accessor :start_manually
@@ -98,7 +99,6 @@ module Split
         'Panopta' => 'Monitoring service',
         'Pingdom' => 'Pingdom monitoring',
         'SiteUptime' => 'Site monitoring services',
-        'UptimeRobot' => 'Monitoring service',
 
         # ???
         'DigitalPersona Fingerprint Software' => 'HP Fingerprint scanner',
@@ -220,6 +220,7 @@ module Split
       @experiments = {}
       @persistence = Split::Persistence::SessionAdapter
       @persistence_cookie_length = 31536000 # One year from now
+      @cookie_domain = ''
       @algorithm = Split::Algorithms::WeightedSample
       @include_rails_helper = true
       @beta_probability_simulations = 10000
